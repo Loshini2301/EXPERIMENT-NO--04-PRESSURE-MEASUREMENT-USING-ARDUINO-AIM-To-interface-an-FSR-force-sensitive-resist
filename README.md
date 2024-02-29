@@ -1,5 +1,7 @@
-# EXPERIMENT-NO--04-PRESSURE-MEASUREMENT-USING-ARDUINO-AIM-To-interface-an-FSR-force-sensitive-resistor
-
+# EXPERIMENT-NO--03-PRESSURE-MEASUREMENT-USING-ARDUINO-AIM-To-interface-an-FSR-force-sensitive-resistor
+## NAME:LOSHINI.G
+## DEPARTMENT:IT
+## REFERENCE NO:212223220051
 
 ## AIM: 
 To interface an FSR(force sensitive resistor) and scale the output voltage obtained to pressure applied 
@@ -54,8 +56,7 @@ The easiest way to measure a resistive sensor is to connect one end to power and
 
 
 
-![image](https://user-images.githubusercontent.com/36288975/163532979-a2a5cb5c-f495-442c-843e-bebb82737a35.png)
-
+![Screenshot 2024-02-29 135526](https://github.com/Loshini2301/EXPERIMENT-NO--04-PRESSURE-MEASUREMENT-USING-ARDUINO-AIM-To-interface-an-FSR-force-sensitive-resist/assets/150007305/7b8eef6b-c0bc-4d02-83dd-879be26c3e02)
 
 
 ### FIGURE-03 CIRCUIT DIAGRAM
@@ -76,27 +77,41 @@ The easiest way to measure a resistive sensor is to connect one end to power and
 
 
 ### PROGRAM 
- *your roll no 
- * your name 
- * department and year 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+ *your roll no 212223220051
+ * your name LOSHINI.G
+ * department and year IT 1ST YEAR
+```
+ int fsr;
+int LED=7;
+void setup()
+{
+  pinMode(LED, OUTPUT);
+  Serial.begin(9600);
+}
 
-![image](https://user-images.githubusercontent.com/36288975/188804653-a3154e8e-2655-46f2-9dcd-f425dd1ba109.png)
+void loop()
+{
+  fsr= analogRead(A0);
+  Serial.print("raw value=");
+  Serial.println(fsr);
+  delay(1000);
+  int m;
+  m = map(fsr,0,159,0,10);
+   Serial.print("mapped value=");
+  Serial.println(m);
+  delay(1000);
 
+if(m>5)
+{
+  digitalWrite (LED,HIGH);
+  delay(500);
+  digitalWrite (LED,LOW);
+  delay(500);
+}
+}
+```
+
+![Screenshot 2024-02-29 142033](https://github.com/Loshini2301/EXPERIMENT-NO--04-PRESSURE-MEASUREMENT-USING-ARDUINO-AIM-To-interface-an-FSR-force-sensitive-resist/assets/150007305/ef35c8df-3af3-4c38-8b68-5542cbeb1166)
 
 ### TABLE -02 standard deviation table 
 ### Population Standard Deviation
@@ -126,7 +141,5 @@ EX:           μ = (1+3+4+7+8) / 5 = 4.6
 
 
 
-
-
-
-### RESULTS : Arduino uno is interfaced with FSR and output values are indicated on a graph.
+### RESULTS :
+   Arduino uno is interfaced with FSR and output values are indicated on a graph.
